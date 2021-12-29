@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class BrandGVAdapter extends ArrayAdapter<Brand> {
     public long idBrand ;
+    public String imgUrlBrand, displayName ;
     public BrandGVAdapter(@NonNull Context context, ArrayList<Brand> brandArrayList) {
         super(context, 0, brandArrayList);
     }
@@ -42,15 +43,21 @@ public class BrandGVAdapter extends ArrayAdapter<Brand> {
         ImageView imageBrand = listitemView.findViewById(R.id.image_brand);
         Picasso.get().load(brand.getPic()).into(imageBrand);
         idBrand= brand.getOfferId() ;
-        Log.d("TAG", "+++++++++++++++++++++++++++"+idBrand) ;
+        imgUrlBrand=brand.getPic() ;
+        displayName=brand.getDisplayName() ;
         listitemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // on the item click on our list view.
                 // we are displaying a toast message.
                 Toast.makeText(getContext(), "la marque selectionnée  est: ******"+brand.getOfferId()+" " + brand.getDisplayName(), Toast.LENGTH_SHORT).show();
-                getContext().startActivity(new Intent(getContext(), PurchaseActivity.class));
-                brand.getOfferId();
+                Intent intent = new Intent(getContext(), PurchaseActivity.class) ;
+                intent.putExtra("imgUrlBrand" , brand.getPic()) ;
+                intent.putExtra("displayName" , brand.getDisplayName()) ;
+                intent.putExtra("idBrandClicked", brand.getOfferId()) ;
+               // intent.putExtra("idBrandClicked", brand.getOfferId()) ;
+                getContext().startActivity(intent);
+
 
 
             }
