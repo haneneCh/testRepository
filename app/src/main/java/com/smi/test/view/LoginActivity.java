@@ -38,9 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText mEdtEmail, mEdtPassword;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private ImageView mImageView;
+
     private TextView mTextViewProfile;
-    private TextInputLayout mLayoutEmail, mLayoutPassword;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mTextViewProfile = findViewById(R.id.profile);
         mEdtEmail = findViewById(R.id.edt_email);
         mEdtPassword = findViewById(R.id.edt_password);
-        mImageView = findViewById(R.id.logo);
-        mLayoutEmail = findViewById(R.id.layout_email);
-        mLayoutPassword = findViewById(R.id.layout_password);
+
 
         findViewById(R.id.email_sign_in_button).setOnClickListener(this);
         findViewById(R.id.email_create_account_button).setOnClickListener(this);

@@ -51,7 +51,7 @@ public class BrandGVAdapter extends ArrayAdapter<Brand> {
                 Toast.makeText(getContext(), "la marque selectionnée  est: ******"+brand.getOfferId()+" " + brand.getDisplayName(), Toast.LENGTH_SHORT).show();
                 getContext().startActivity(new Intent(getContext(), PurchaseActivity.class));
                 brand.getOfferId();
-                
+
 
             }
 
